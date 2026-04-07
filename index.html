@@ -3,18 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Personal Page</title>
-  <meta name="description" content="Personal website for Your Name — PhD research, Keele Rocketry Team, and personal projects." />
+  <title>Jatinder Singh Pannu | Personal Page</title>
+  <meta name="description" content="Personal website for Jatinder Singh Pannu — PhD research, Keele Rocketry Team, and personal projects." />
   <style>
-
-  .portrait-image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border: 1px solid var(--line);
-  display: block;
-}
-    
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
     :root {
@@ -29,7 +20,9 @@
       --sans: 'Inter', Arial, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -44,6 +37,7 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
     a {
@@ -54,6 +48,10 @@
     img {
       max-width: 100%;
       display: block;
+    }
+
+    h1, h2, h3, p, a, dd, dt {
+      overflow-wrap: anywhere;
     }
 
     .page {
@@ -71,7 +69,7 @@
       border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
       z-index: 20;
     }
@@ -184,19 +182,15 @@
       justify-content: space-between;
       gap: 24px;
       min-height: 420px;
+      min-width: 0;
     }
 
-    .portrait {
+    .portrait-image {
+      width: 100%;
       aspect-ratio: 4 / 5;
+      object-fit: cover;
       border: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, #ffffff 0%, #f2f2f2 100%);
-      display: grid;
-      place-items: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-      text-align: center;
-      padding: 20px;
+      display: block;
     }
 
     .hero-card dl {
@@ -302,6 +296,7 @@
       flex-direction: column;
       gap: 10px;
       justify-content: space-between;
+      min-width: 0;
     }
 
     .card-label {
@@ -357,6 +352,7 @@
       font-family: var(--serif);
       font-size: 1.4rem;
       line-height: 1.15;
+      min-width: 0;
     }
 
     .footer {
@@ -368,12 +364,19 @@
       color: var(--muted);
     }
 
-    .muted { color: var(--muted); }
+    .muted {
+      color: var(--muted);
+    }
 
     @media (max-width: 980px) {
       .hero,
       .layout {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 36px 0 28px;
       }
 
       .hero-card {
@@ -387,26 +390,98 @@
         padding-left: 0;
         padding-top: 18px;
       }
+
+      .side-index nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
     }
 
     @media (max-width: 720px) {
       .topbar {
         align-items: flex-start;
         flex-direction: column;
+        position: static;
+        padding: 16px 0;
+      }
+
+      .brand {
+        font-size: 1.15rem;
+      }
+
+      .brand span {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+      }
+
+      .top-links {
+        width: 100%;
+        gap: 10px 14px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        gap: 24px;
+        padding: 28px 0 24px;
+      }
+
+      h1 {
+        font-size: clamp(2.3rem, 11vw, 4rem);
+        line-height: 0.95;
+        max-width: 100%;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-card {
+        padding: 16px;
+      }
+
+      .hero-card dl {
+        grid-template-columns: 1fr;
+        gap: 4px;
       }
 
       .section {
         grid-template-columns: 1fr;
         gap: 12px;
+        padding: 28px 0;
+      }
+
+      .section-number {
+        padding-top: 0;
+      }
+
+      .section-intro {
+        font-size: 1rem;
       }
 
       .grid,
-      .list li {
+      .list li,
+      .side-index nav {
         grid-template-columns: 1fr;
       }
 
-      h1 {
-        max-width: 100%;
+      .card h3 {
+        font-size: 1.4rem;
+      }
+
+      .quote {
+        font-size: 1.15rem;
+        padding: 14px 16px;
       }
 
       .footer {
@@ -432,9 +507,9 @@
         <div class="eyebrow">PhD Researcher • Rocketry • Projects</div>
         <h1>From PhD research to rocketry and personal projects.</h1>
         <p class="hero-copy">
-          Wellcome to my personal page. I'm a third year PhD researcher at Keele University with interests in mathematical modelling,
-          scientific computing, and fluid dynamics. My work spans computational and analytical mathematics
-          research, rocketry, and some other personal technical projects.
+          Welcome to my personal page. I am a third-year PhD researcher at Keele University with interests in mathematical modelling,
+          scientific computing, and fluid dynamics. My work spans computational and analytical mathematics,
+          rocketry, and personal technical projects.
         </p>
         <div class="hero-actions">
           <a class="button" href="#research">View research</a>
@@ -444,7 +519,7 @@
       </div>
 
       <aside class="hero-card">
-        <img class="portrait-image" src="IMG_6794.JPEG" alt="Photo of Your Name">
+        <img class="portrait-image" src="IMG_6794.JPEG" alt="Portrait of Jatinder Singh Pannu">
         <dl>
           <dt>Based at</dt><dd>Keele University</dd>
           <dt>Focus</dt><dd>PhD research, modelling, computation</dd>
@@ -461,7 +536,8 @@
           <div>
             <h2>Profile</h2>
             <p class="section-intro">
-              
+              I am a mathematician and researcher with a strong interest in fluid dynamics, scientific computing, and engineering-led problem solving.
+              My work brings together analytical theory, numerical modelling, and practical teamwork through both academic research and extracurricular projects.
             </p>
             <div class="quote">
               “I enjoy building things that sit at the intersection of mathematics,
@@ -475,10 +551,9 @@
           <div>
             <h2>Academic / PhD Research</h2>
             <p class="section-intro">
-              After graduating with a first class MMath degree in the summer of 2023 I began PhD research looking into the spreading and solidification of molten fluid flows. This built upon my 
-              previous projects where I had used lubrication theory to model thin film flows within foams. Within my PhD research we use the same lubrication theory to simplify the Navier Stokes 
-              equations (a set of complex PDEs) to obtain an evolution equation for the fluids free surface that is coupled to an energy equation through a temperature dependant viscosity. I use a combination
-              of numerical methods and analytical work (theory). 
+              After graduating with a first-class MMath degree in the summer of 2023, I began my PhD research into the spreading and solidification of molten fluid flows.
+              This built upon earlier projects where I used lubrication theory to model thin-film flows within foams. In my current work, lubrication theory is used to simplify the Navier–Stokes equations
+              into an evolution equation for the fluid free surface, coupled to an energy equation through a temperature-dependent viscosity. My research combines numerical methods with analytical theory.
             </p>
             <div class="grid">
               <article class="card">
@@ -487,7 +562,8 @@
                   <h3>Thin-film flows</h3>
                 </div>
                 <p>
-                  Modeling fluids where the spreading length is much longer then the fluid height to obtain fluid surface evolution equations. I'm currently looking at modeling Lava and Molten fluid flows.
+                  I model fluids where the spreading length scale is much larger than the fluid height, allowing reduced equations for free-surface evolution.
+                  I am currently interested in modelling lava and other molten fluid flows.
                 </p>
               </article>
               <article class="card">
@@ -496,7 +572,8 @@
                   <h3>Scientific computing</h3>
                 </div>
                 <p>
-                  I use finite diffrence algorithms to numerically solve complex coupled PDE systems. Working in Python I use high-performance computing (Keele's Green HPC) to obtain numerical solutions to these systems.
+                  I use finite-difference algorithms to solve complex coupled PDE systems numerically.
+                  Working mainly in Python, I use high-performance computing on Keele’s Green HPC to obtain and analyse these solutions.
                 </p>
               </article>
             </div>
@@ -506,24 +583,24 @@
                 <div class="meta">Current focus</div>
                 <div>
                   <strong>What am I working on?</strong>
-                  Add 2–4 lines about your present PhD direction, key equations, computational methods,
-                  or the core scientific question you are trying to answer.
+                  I am currently studying how molten and highly viscous fluids spread, cool, and solidify.
+                  This involves deriving and solving coupled free-surface and temperature equations, and investigating how heat transport influences the overall flow dynamics.
                 </div>
               </li>
               <li>
                 <div class="meta">Tools</div>
                 <div>
                   <strong>Software and workflow</strong>
-                  Python, NumPy, SciPy, numerical methods, cluster computing, plotting,
-                  data analysis, or any other tools you want visible.
+                  My work uses Python, NumPy, SciPy, numerical methods for PDEs, data visualisation, and cluster computing.
+                  I also work with custom finite-difference solvers and high-resolution simulations on HPC systems.
                 </div>
               </li>
               <li>
                 <div class="meta">Why it matters</div>
                 <div>
                   <strong>Broader value</strong>
-                  Explain why your modelling work is interesting or useful.
-                  Keep this accessible for someone outside your field.
+                  Understanding how thin molten films spread and cool is important in both natural and industrial settings.
+                  This research helps build mathematical models that can explain complex physical behaviour while remaining computationally tractable.
                 </div>
               </li>
             </ul>
@@ -535,8 +612,8 @@
           <div>
             <h2>Keele Rocketry Team</h2>
             <p class="section-intro">
-              This section should show the practical side of your work: teamwork, design thinking,
-              testing, project ownership, and engineering problem-solving.
+              My involvement in the Keele Rocketry Team reflects the practical side of my interests: collaboration, design thinking,
+              testing, and engineering problem solving in a hands-on team environment.
             </p>
             <div class="grid">
               <article class="card">
@@ -545,8 +622,8 @@
                   <h3>Collaborative build</h3>
                 </div>
                 <p>
-                  Describe your role in the team, the kind of tasks you contribute to,
-                  and how the project has helped you develop as an engineer or researcher.
+                  Working within a multidisciplinary team has helped me develop confidence in communication,
+                  shared decision-making, and technical collaboration on large engineering projects.
                 </p>
               </article>
               <article class="card">
@@ -555,8 +632,8 @@
                   <h3>Design and testing</h3>
                 </div>
                 <p>
-                  Mention any design, simulation, manufacturing, testing, electronics,
-                  documentation, or competition-related work you have been involved in.
+                  Through rocketry I have gained experience in technical problem solving, project organisation,
+                  and the practical side of engineering design, testing, and iteration.
                 </p>
               </article>
             </div>
@@ -566,15 +643,16 @@
                 <div class="meta">Project role</div>
                 <div>
                   <strong>What do I do in the team?</strong>
-                  Add a short description of your responsibilities and what part of the project you enjoy most.
+                  I contribute to the wider technical and collaborative work of the Keele Rocketry Team, helping to support design-led thinking,
+                  problem solving, and team-based project development.
                 </div>
               </li>
               <li>
                 <div class="meta">Skills gained</div>
                 <div>
                   <strong>What has rocketry taught me?</strong>
-                  Add lessons about communication, troubleshooting, technical confidence,
-                  practical engineering, or leadership.
+                  Rocketry has strengthened my ability to work in teams, communicate technical ideas clearly,
+                  troubleshoot under pressure, and connect theoretical understanding with practical engineering challenges.
                 </div>
               </li>
             </ul>
@@ -586,28 +664,28 @@
           <div>
             <h2>Extracurricular Activities / Personal Projects</h2>
             <p class="section-intro">
-              Use this section for the rest of your story: coding projects, writing, volunteering,
-              outreach, societies, competitions, or anything else that shows curiosity and initiative.
+              Alongside my PhD and rocketry work, I enjoy pursuing technical and personal projects that reflect curiosity,
+              initiative, and a broader interest in learning beyond the classroom and research environment.
             </p>
             <div class="grid">
               <article class="card">
                 <div>
                   <div class="card-label">Personal project</div>
-                  <h3>Project one</h3>
+                  <h3>Technical exploration</h3>
                 </div>
                 <p>
-                  Replace this with one strong project. Focus on what you built,
-                  why you built it, and what it demonstrates about you.
+                  I enjoy working on computational and coding-based projects that extend the techniques I use in research,
+                  including simulation tools, numerical experiments, and visualisation work.
                 </p>
               </article>
               <article class="card">
                 <div>
                   <div class="card-label">Extracurricular</div>
-                  <h3>Activity two</h3>
+                  <h3>Wider involvement</h3>
                 </div>
                 <p>
-                  Replace this with a second activity or project, such as a society role,
-                  outreach work, community involvement, or another technical interest.
+                  This section can be used to highlight student involvement, outreach, volunteering,
+                  society work, or any other activities that show initiative and broader interests.
                 </p>
               </article>
             </div>
@@ -617,22 +695,24 @@
                 <div class="meta">Coding</div>
                 <div>
                   <strong>Technical side projects</strong>
-                  Add anything from simulation tools to small apps, visualisation work,
-                  automation, or personal experiments with code.
+                  I am interested in building tools and scripts for modelling, automation, and data analysis.
+                  These projects help me deepen my programming skills while exploring ideas beyond my formal research.
                 </div>
               </li>
               <li>
                 <div class="meta">Leadership</div>
                 <div>
                   <strong>Roles and responsibility</strong>
-                  Mention any committee, volunteering, mentoring, or event work if relevant.
+                  I value opportunities to contribute to team projects, student activities, and collaborative environments
+                  where organisation, communication, and reliability matter.
                 </div>
               </li>
               <li>
                 <div class="meta">Interests</div>
                 <div>
                   <strong>Wider interests</strong>
-                  Include any creative or personal interests that you want to appear on the site.
+                  Outside formal research, I enjoy combining technical thinking with practical and creative interests,
+                  particularly where mathematics, engineering, and computation overlap.
                 </div>
               </li>
             </ul>
@@ -644,15 +724,15 @@
           <div>
             <h2>Contact</h2>
             <p class="section-intro">
-              Please feel free to reach out to me in regards to any colaboration, opportunities, queries or for a quick meeting. 
+              Please feel free to reach out regarding collaborations, opportunities, research questions, or a quick meeting.
             </p>
             <div class="grid">
               <article class="card">
                 <div>
                   <div class="card-label">Email</div>
-                  <h3><a href="mailto:your.email@example.com">Jatinderpannu2001@outlook.com</a></h3>
+                  <h3><a href="mailto:Jatinderpannu2001@outlook.com">Jatinderpannu2001@outlook.com</a></h3>
                 </div>
-                <p>J.s.pannu1@keele.ac.uk</p>
+                <p><a href="mailto:J.s.pannu1@keele.ac.uk">J.s.pannu1@keele.ac.uk</a></p>
               </article>
               <article class="card">
                 <div>
@@ -660,11 +740,10 @@
                   <h3>LinkedIn / CV / GitHub</h3>
                 </div>
                 <p>
-                  LinkedIn - linkedin.com/in/jatinder-pannu-8a57a81b3
-                  Github - JatinderSinghPannu.github.io
-                  Instagram - Jpannu01
-                  CV - Link
-
+                  <a href="https://www.linkedin.com/in/jatinder-pannu-8a57a81b3/" target="_blank" rel="noreferrer">LinkedIn</a><br>
+                  <a href="https://github.com/JatinderSinghPannu" target="_blank" rel="noreferrer">GitHub</a><br>
+                  <a href="https://jatindersinghpannu.github.io" target="_blank" rel="noreferrer">Website</a><br>
+                  <a href="#">CV</a>
                 </p>
               </article>
             </div>
@@ -685,9 +764,8 @@
     </div>
 
     <footer class="footer">
-      <div>© <span id="year"></span> Your Name</div>
-      <div>Built as a single-page GitHub Pages site by 
-        JATINDER P.</div>
+      <div>© <span id="year"></span> Jatinder Singh Pannu</div>
+      <div>Built as a single-page GitHub Pages site by Jatinder P.</div>
     </footer>
   </div>
 
