@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,11 @@
     name="description"
     content="Personal website for Jatinder Singh Pannu — PhD research, Keele Rocketry Team, and personal projects."
   />
+
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
 
   <link
     rel="icon"
@@ -282,6 +287,18 @@
       scroll-margin-top: 90px;
     }
 
+    .js .section {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      will-change: opacity, transform;
+    }
+
+    .js .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .section-number {
       color: var(--muted);
       font-size: 0.88rem;
@@ -422,6 +439,23 @@
 
     .muted {
       color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .js .section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .button,
+      .side-index a {
+        transition: none;
+      }
     }
 
     @media (max-width: 980px) {
@@ -905,6 +939,29 @@
 
     activate();
     window.addEventListener('scroll', activate, { passive: true });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
+
+      sections.forEach(section => {
+        revealObserver.observe(section);
+      });
+    } else {
+      sections.forEach(section => section.classList.add('visible'));
+    }
 
     async function updateViewCount() {
       const counter = document.getElementById('view-count');
