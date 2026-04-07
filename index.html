@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jatinder Singh Pannu | Personal Page</title>
-  <meta name="description" content="Personal website for Jatinder Singh Pannu — PhD research, Keele Rocketry Team, and personal projects." />
+  <meta
+    name="description"
+    content="Personal website for Jatinder Singh Pannu — PhD research, Keele Rocketry Team, and personal projects."
+  />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
@@ -50,7 +53,7 @@
       display: block;
     }
 
-    h1, h2, h3, p, a, dd, dt {
+    h1, h2, h3, p, a, dd, dt, figcaption {
       overflow-wrap: anywhere;
     }
 
@@ -355,6 +358,33 @@
       min-width: 0;
     }
 
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 12px;
+      margin: 0;
+    }
+
+    .gallery-media {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .gallery-caption {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
     .footer {
       padding: 26px 0 10px;
       display: flex;
@@ -480,7 +510,8 @@
 
       .grid,
       .list li,
-      .side-index nav {
+      .side-index nav,
+      .gallery-grid {
         grid-template-columns: 1fr;
       }
 
@@ -491,6 +522,10 @@
       .quote {
         font-size: 1.15rem;
         padding: 14px 16px;
+      }
+
+      .gallery-media {
+        aspect-ratio: auto;
       }
 
       .footer {
@@ -524,8 +559,7 @@
         <h1>From PhD research to rocketry and personal projects.</h1>
         <p class="hero-copy">
           Welcome to my personal page. I am a third-year PhD researcher at Keele University with interests in mathematical modelling,
-          scientific computing, and fluid dynamics. My work spans computational and analytical mathematics,
-          rocketry, and personal technical projects.
+          scientific computing, and fluid dynamics. My work spans computational and analytical mathematics, rocketry, and personal technical projects.
         </p>
         <div class="hero-actions">
           <a class="button" href="#research">View research</a>
@@ -535,7 +569,7 @@
       </div>
 
       <aside class="hero-card">
-        <img class="portrait-image" src="IMG_6794.JPEG" alt="Portrait of Jatinder Singh Pannu">
+        <img class="portrait-image" src="IMG_6794.JPEG" alt="Portrait of Jatinder Singh Pannu" />
         <dl>
           <dt>Based at</dt><dd>Keele University</dd>
           <dt>Focus</dt><dd>PhD research, modelling, and computation</dd>
@@ -558,8 +592,7 @@
             <div class="quote">
               After graduating with a first-class MMath degree in 2023, I began my PhD at Keele University, where I research the spreading and solidification of molten fluid flows.
               My work combines mathematical modelling, scientific computing, and analytical theory, with a particular focus on thin-film flows and temperature-dependent behaviour.
-              Alongside my academic research, I lead a busy professional and extracurricular life as the aerodynamics sub-team lead for Keele’s MACH2026 team and as a PR manager for
-              two busy Specsavers stores in Cheylesmore and Canley.
+              Alongside my academic research, I lead a busy professional and extracurricular life as the aerodynamics sub-team lead for Keele’s MACH2026 team and as a PR manager for two busy Specsavers stores in Cheylesmore and Canley.
             </div>
           </div>
         </section>
@@ -583,6 +616,7 @@
                   I am currently interested in modelling lava and other molten fluid flows.
                 </p>
               </article>
+
               <article class="card">
                 <div>
                   <div class="card-label">Methods</div>
@@ -629,9 +663,9 @@
           <div>
             <h2>Keele Rocketry Team</h2>
             <p class="section-intro">
-              My involvement in the Keele Rocketry Team reflects the practical side of my interests: collaboration, design,
-              testing, and engineering problem solving in a hands-on team environment.
+              My involvement in the Keele Rocketry Team reflects the practical side of my interests: collaboration, design, testing, and engineering problem solving in a hands-on team environment.
             </p>
+
             <div class="grid">
               <article class="card">
                 <div>
@@ -643,6 +677,7 @@
                   shared decision-making, and technical collaboration on a large engineering project.
                 </p>
               </article>
+
               <article class="card">
                 <div>
                   <div class="card-label">Engineering</div>
@@ -683,6 +718,7 @@
               Alongside my PhD and rocketry work, I enjoy pursuing technical and personal projects that reflect my curiosity,
               initiative, and a broader interest in learning beyond the classroom and research environment.
             </p>
+
             <div class="grid">
               <article class="card">
                 <div>
@@ -694,14 +730,15 @@
                   including simulation tools, numerical experiments, and visualisation work.
                 </p>
               </article>
+
               <article class="card">
                 <div>
                   <div class="card-label">Extracurricular</div>
                   <h3>Wider involvement</h3>
                 </div>
                 <p>
-                  My work as a PR manager for Specsavers involves communication with various organisations within the wider
-                  community, organising outreach and marketing events, and helping ensure a patient-centred service across both stores while handling both positive and negative feedback.
+                  My work as a PR manager for Specsavers involves communication with various organisations within the wider community,
+                  organising outreach and marketing events, and helping ensure a patient-centred service across both stores while handling both positive and negative feedback.
                 </p>
               </article>
             </div>
@@ -711,25 +748,23 @@
                 <div class="meta">Coding</div>
                 <div>
                   <strong>Technical side projects</strong>
-                  I am interested in building technical CFD (computational fluid dynamics) modelling experience alongside my PhD. I am currently
-                  processing simulations for airflow over an aerofoil in Ansys Fluent. In addition, I am looking to begin further projects
-                  over the summer based around Monte Carlo simulations or stochastic control theory. These projects help me deepen my programming skills while exploring ideas beyond my formal research.
+                  I am interested in building technical CFD (computational fluid dynamics) modelling experience alongside my PhD.
+                  I am currently processing simulations for airflow over an aerofoil in Ansys Fluent. In addition, I am looking to begin further projects over the summer based around Monte Carlo simulations or stochastic control theory.
+                  These projects help me deepen my programming skills while exploring ideas beyond my formal research.
                 </div>
               </li>
               <li>
                 <div class="meta">Leadership</div>
                 <div>
                   <strong>Roles and responsibilities</strong>
-                  I value opportunities to contribute to team projects, student activities, and collaborative environments
-                  where organisation, communication, and reliability matter.
+                  I value opportunities to contribute to team projects, student activities, and collaborative environments where organisation, communication, and reliability matter.
                 </div>
               </li>
               <li>
                 <div class="meta">Interests</div>
                 <div>
                   <strong>Wider interests</strong>
-                  Outside formal research, I also enjoy practical and creative interests,
-                  such as badminton, the gym, and golfing.
+                  Outside formal research, I also enjoy practical and creative interests, such as badminton, the gym, and golfing.
                 </div>
               </li>
             </ul>
@@ -743,6 +778,7 @@
             <p class="section-intro">
               Please feel free to reach out regarding collaborations, opportunities, research questions, or a quick meeting.
             </p>
+
             <div class="grid">
               <article class="card">
                 <div>
@@ -751,18 +787,59 @@
                 </div>
                 <p><a href="mailto:J.s.pannu1@keele.ac.uk">J.s.pannu1@keele.ac.uk</a></p>
               </article>
+
               <article class="card">
                 <div>
                   <div class="card-label">Links</div>
                   <h3>LinkedIn / CV / GitHub</h3>
                 </div>
                 <p>
-                  <a href="https://www.linkedin.com/in/jatinder-pannu-8a57a81b3/" target="_blank" rel="noreferrer">LinkedIn</a><br>
-                  <a href="https://github.com/JatinderSinghPannu" target="_blank" rel="noreferrer">GitHub</a><br>
-                  <a href="https://jatindersinghpannu.github.io" target="_blank" rel="noreferrer">Website</a><br>
+                  <a href="https://www.linkedin.com/in/jatinder-pannu-8a57a81b3/" target="_blank" rel="noreferrer">LinkedIn</a><br />
+                  <a href="https://github.com/JatinderSinghPannu" target="_blank" rel="noreferrer">GitHub</a><br />
+                  <a href="https://jatindersinghpannu.github.io" target="_blank" rel="noreferrer">Website</a><br />
                   <a href="#">CV</a>
                 </p>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="gallery">
+          <div class="section-number">06</div>
+          <div>
+            <h2>Gallery</h2>
+            <p class="section-intro">
+              A small selection of visuals from my research, presentations, and interests outside academia.
+            </p>
+
+            <div class="gallery-grid">
+              <figure class="gallery-item">
+                <img class="gallery-media" src="7ab45573-aef9-474b-af14-40464c0e6c8b.JPEG" alt="Jatinder Singh Pannu presenting at a conference" />
+                <figcaption class="gallery-caption">
+                  Presenting my research at a conference.
+                </figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img class="gallery-media" src="h_evolution.gif" alt="Animated plot showing film height evolution" />
+                <figcaption class="gallery-caption">
+                  GIF showing the evolution of film height over time.
+                </figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img class="gallery-media" src="film_2x2_Pe_grid_x2p5_z1_t30_magma_dark.gif" alt="Animated simulation plot of thin-film flow and temperature behaviour" />
+                <figcaption class="gallery-caption">
+                  Simulation visualisation from my thin-film flow research.
+                </figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img class="gallery-media" src="IMG_3101.JPEG" alt="Jatinder Singh Pannu playing golf" />
+                <figcaption class="gallery-caption">
+                  Outside research, I also enjoy golfing.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -776,6 +853,7 @@
           <a href="#rocketry">03 / Rocketry</a>
           <a href="#projects">04 / Projects</a>
           <a href="#contact">05 / Contact</a>
+          <a href="#gallery">06 / Gallery</a>
         </nav>
       </aside>
     </div>
