@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jatinder Singh Pannu | Personal Page</title>
+  <meta
+    name="description"
+    content="Personal website for Jatinder Singh Pannu — PhD research, Keele Rocketry Team, and personal projects."
+  />
+
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='white'/%3E%3Crect x='1.5' y='1.5' width='61' height='61' rx='6.5' fill='none' stroke='black' stroke-width='3'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Garamond,Cormorant Garamond,Georgia,serif' font-size='30' font-weight='700' fill='black'%3EJP%3C/text%3E%3C/svg%3E"
+  />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #ffffff;
+      --text: #0f0f0f;
+      --muted: #5b5b5b;
+      --line: #d9d9d9;
+      --soft: #f5f5f5;
+      --topbar-bg: rgba(255, 255, 255, 0.92);
+      --button-hover-text: #ffffff;
+      --max: 1320px;
+      --pad: clamp(20px, 3vw, 44px);
+      --serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+      --sans: 'Inter', Arial, sans-serif;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #070707;
+      --text: #e8ddcb;
+      --muted: #b8ab98;
+      --line: #2b2722;
+      --soft: #121110;
+      --topbar-bg: rgba(10, 10, 10, 0.9);
+      --button-hover-text: #070707;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    ::selection {
+      background: #d40000;
+      color: #ffffff;
+    }
+
+    ::-moz-selection {
+      background: #d40000;
+      color: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1, h2, h3, p, a, dd, dt, figcaption, button {
+      overflow-wrap: anywhere;
+    }
+
+    .page {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 0 var(--pad) 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: var(--topbar-bg);
+      backdrop-filter: blur(10px);
+      z-index: 20;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .brand {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-left: 0.55rem;
+      font-family: var(--sans);
+      letter-spacing: 0.02em;
+    }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .top-links a:hover,
+    .side-index a:hover {
+      color: var(--text);
+    }
+
+    .theme-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 74px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition: transform 0.28s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+html[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(44px);
+}
+
+.theme-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 0.8rem;
+  transition: opacity 0.25s ease, color 0.25s ease;
+  user-select: none;
+}
+
+
+
+    html[data-theme="dark"] .theme-toggle-thumb {
+      transform: translateX(34px);
+    }
+
+    .theme-icon {
+      position: relative;
+      z-index: 1;
+      font-size: 0.95rem;
+      transition: opacity 0.25s ease, color 0.25s ease;
+      user-select: none;
+    }
+
+    .theme-icon.sun {
+      color: #c88a00;
+      opacity: 1;
+    }
+
+    .theme-icon.moon {
+      color: var(--muted);
+      opacity: 0.65;
+    }
+
+    html[data-theme="dark"] .theme-icon.sun {
+      opacity: 0.45;
+    }
+
+    html[data-theme="dark"] .theme-icon.moon {
+      color: #f1e7d5;
+      opacity: 1;
+    }
+
+    .hero {
+      min-height: 72svh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.9fr);
+      gap: 36px;
+      align-items: end;
+      padding: 28px 0 44px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-family: var(--serif);
+    }
+
+    h1 {
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      line-height: 0.92;
+      max-width: 10ch;
+    }
+
+    .hero-copy {
+      margin-top: 20px;
+      max-width: 700px;
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--text);
+      font-size: 0.95rem;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--text);
+      color: var(--button-hover-text);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      color: var(--muted);
+    }
+
+    .button.secondary:hover {
+      background: var(--soft);
+      color: var(--text);
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      padding: 22px;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 420px;
+      min-width: 0;
+      background: var(--bg);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .portrait-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      display: block;
+    }
+
+    .hero-card dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 16px;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .hero-card dt {
+      color: var(--muted);
+    }
+
+    .hero-card dd {
+      margin: 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 240px;
+      gap: 44px;
+      margin-top: 20px;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .side-index {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      border-left: 1px solid var(--line);
+      padding-left: 20px;
+      font-size: 0.95rem;
+    }
+
+    .side-index h3 {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .side-index nav {
+      display: grid;
+      gap: 12px;
+    }
+
+    .side-index a {
+      color: var(--muted);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .side-index a.active {
+      color: var(--text);
+      transform: translateX(3px);
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 24px;
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 90px;
+    }
+
+    .js .section {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      will-change: opacity, transform;
+    }
+
+    .js .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-number {
+      color: var(--muted);
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding-top: 10px;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      margin-bottom: 14px;
+    }
+
+    .section-intro {
+      font-size: 1.1rem;
+      max-width: 66ch;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      padding: 18px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: space-between;
+      min-width: 0;
+      background: var(--bg);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .card h3 {
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .list .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .list strong {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .quote {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-left: 2px solid var(--text);
+      background: var(--soft);
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      line-height: 1.15;
+      min-width: 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 12px;
+      margin: 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .gallery-media {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .gallery-caption {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 26px 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      body,
+      .topbar,
+      .hero-card,
+      .card,
+      .gallery-item,
+      .gallery-media,
+      .quote {
+        transition: none;
+      }
+
+      .js .section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .button,
+      .side-index a,
+      .theme-toggle-track,
+      .theme-toggle-thumb,
+      .theme-icon {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 22px 0 28px;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .side-index {
+        position: static;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 18px;
+      }
+
+      .side-index nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        position: static;
+        padding: 16px 0;
+      }
+
+      .brand {
+        font-size: 1.15rem;
+      }
+
+      .brand span {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+      }
+
+      .top-controls {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .top-links {
+        width: 100%;
+        gap: 10px 14px;
+        font-size: 0.9rem;
+      }
+
+      .theme-toggle {
+        align-self: flex-start;
+      }
+
+      .hero {
+        gap: 24px;
+        padding: 18px 0 24px;
+      }
+
+      h1 {
+        font-size: clamp(2.3rem, 11vw, 4rem);
+        line-height: 0.95;
+        max-width: 100%;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-card {
+        padding: 16px;
+      }
+
+      .hero-card dl {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 28px 0;
+      }
+
+      .section-number {
+        padding-top: 0;
+      }
+
+      .section-intro {
+        font-size: 1rem;
+      }
+
+      .grid,
+      .list li,
+      .side-index nav,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card h3 {
+        font-size: 1.4rem;
+      }
+
+      .quote {
+        font-size: 1.15rem;
+        padding: 14px 16px;
+      }
+
+      .gallery-media {
+        aspect-ratio: auto;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">Jatinder Singh Pannu <span>Personal Page</span></div>
+
+      <div class="top-controls">
+        <div class="top-links">
+          <a href="mailto:Jatinderpannu2001@outlook.com">Email</a>
+          <a href="https://www.linkedin.com/in/jatinder-pannu-8a57a81b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/JatinderSinghPannu" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle day and night mode" aria-pressed="false">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb"></span>
+            <span class="theme-icon sun" aria-hidden="true">☀</span>
+            <span class="theme-icon moon" aria-hidden="true">☾</span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div>
+        <div class="eyebrow">PhD Researcher • Rocketry • Projects</div>
+        <h1>From PhD research to rocketry and personal projects.</h1>
+        <p class="hero-copy">
+          Welcome to my personal page. I am a third-year PhD researcher at Keele University with interests in mathematical modelling,
+          scientific computing, and fluid dynamics. My work spans computational and analytical mathematics, rocketry, and personal technical projects.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#research">View research</a>
+          <a class="button secondary" href="#rocketry">See rocketry work</a>
+          <a class="button secondary" href="#projects">Projects &amp; activities</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <img class="portrait-image" src="IMG_6794.JPEG" alt="Portrait of Jatinder Singh Pannu" />
+        <dl>
+          <dt>Based at</dt><dd>Keele University</dd>
+          <dt>Focus</dt><dd>PhD research, modelling, and computation</dd>
+          <dt>Team</dt><dd>Keele Rocketry Team</dd>
+          <dt>Open to</dt><dd>Research, collaboration, and technical opportunities</dd>
+        </dl>
+      </aside>
+    </section>
+
+    <div class="layout">
+      <main class="content">
+        <section class="section" id="profile">
+          <div class="section-number">01</div>
+          <div>
+            <h2>Profile</h2>
+            <p class="section-intro">
+              I am a mathematician and researcher with a strong interest in fluid dynamics, scientific computing, and engineering-led problem solving.
+              My work brings together analytical theory, numerical modelling, and practical teamwork through both academic research and extracurricular projects.
+            </p>
+            <div class="quote">
+              After graduating with a first-class MMath degree in 2023, I began my PhD at Keele University, where I research the spreading and solidification of molten fluid flows.
+              My work combines mathematical modelling, scientific computing, and analytical theory, with a particular focus on thin-film flows and temperature-dependent behaviour.
+              Alongside my academic research, I lead a busy professional and extracurricular life as the aerodynamics sub-team lead for Keele’s MACH2026 team and as a PR manager for two busy Specsavers stores in Cheylesmore and Canley.
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="research">
+          <div class="section-number">02</div>
+          <div>
+            <h2>Academic / PhD Research</h2>
+            <p class="section-intro">
+              My PhD research focuses on mathematical modelling and scientific computing for molten fluid flows, with particular emphasis on thin-film theory, heat transport, and solidification.
+            </p>
+
+            <div class="grid">
+              <article class="card">
+                <div>
+                  <div class="card-label">Research area</div>
+                  <h3>Thin-film flows</h3>
+                </div>
+                <p>
+                  I model fluids where the spreading length scale is much larger than the fluid height, allowing reduced equations for free-surface evolution.
+                  I am currently interested in modelling lava and other molten fluid flows.
+                </p>
+              </article>
+
+              <article class="card">
+                <div>
+                  <div class="card-label">Methods</div>
+                  <h3>Scientific computing</h3>
+                </div>
+                <p>
+                  I use finite-difference algorithms to solve complex coupled PDE systems numerically.
+                  Working mainly in Python, I use high-performance computing on Keele’s Green HPC to obtain and analyse these solutions.
+                </p>
+              </article>
+            </div>
+
+            <ul class="list">
+              <li>
+                <div class="meta">Current focus</div>
+                <div>
+                  <strong>What am I working on?</strong>
+                  I am currently studying how molten and highly viscous fluids spread, cool, and solidify.
+                  This involves deriving and solving coupled free-surface and temperature equations, and investigating how heat transport influences the overall flow dynamics.
+                </div>
+              </li>
+              <li>
+                <div class="meta">Tools</div>
+                <div>
+                  <strong>Software and workflow</strong>
+                  My work uses Python, NumPy, SciPy, numerical methods for PDEs, data visualisation, and cluster computing.
+                  I also work with custom finite-difference solvers and high-resolution simulations on HPC systems.
+                </div>
+              </li>
+              <li>
+                <div class="meta">Why it matters</div>
+                <div>
+                  <strong>Broader value</strong>
+                  Understanding how thin molten films spread and cool is important in both natural and industrial settings.
+                  This research helps build mathematical models that can explain complex physical behaviour, including phenomena relevant to lava-flow hazard assessment and the mitigation of nuclear power plant reactor meltdowns, where radioactive corium may be spread onto an under-cooled core catcher.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="rocketry">
+          <div class="section-number">03</div>
+          <div>
+            <h2>Keele Rocketry Team</h2>
+            <p class="section-intro">
+              My involvement in the Keele Rocketry Team reflects the practical side of my interests: collaboration, design, testing, and engineering problem solving in a hands-on team environment.
+            </p>
+
+            <div class="grid">
+              <article class="card">
+                <div>
+                  <div class="card-label">Teamwork</div>
+                  <h3>Collaborative build</h3>
+                </div>
+                <p>
+                  Working within a multidisciplinary team as the aerodynamics sub-team lead has helped me develop confidence in communication,
+                  shared decision-making, and technical collaboration on a large engineering project.
+                </p>
+              </article>
+
+              <article class="card">
+                <div>
+                  <div class="card-label">Engineering</div>
+                  <h3>Design and testing</h3>
+                </div>
+                <p>
+                  Through rocketry, I have gained experience in technical problem solving, project organisation,
+                  and the practical side of engineering design, testing, and iteration.
+                </p>
+              </article>
+            </div>
+
+            <ul class="list">
+              <li>
+                <div class="meta">Project role</div>
+                <div>
+                  <strong>What do I do in the team?</strong>
+                  As the aerodynamics team lead, I help organise and coordinate simulation and rocket design work with other team leads.
+                  Drawing on inputs from the recovery, integration, and payload sub-teams, we make key decisions regarding weight distribution, rocket body design, fin design, and nose cone geometry.
+                </div>
+              </li>
+              <li>
+                <div class="meta">Skills gained</div>
+                <div>
+                  <strong>What has rocketry taught me?</strong>
+                  Rocketry has strengthened my ability to lead effectively, communicate technical ideas clearly, and connect theoretical understanding with practical engineering challenges.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="startup">
+          <div class="section-number">04</div>
+          <div>
+            <h2>Tech-Startup Business</h2>
+            <p class="section-intro">
+              I am currently developing a technology-led business venture, with launch planned for late August.
+              The project focuses on applying digital tools to improve practical workflows in a professional sector.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="projects">
+          <div class="section-number">05</div>
+          <div>
+            <h2>Extracurricular Activities / Personal Projects</h2>
+            <p class="section-intro">
+              Alongside my PhD and rocketry work, I enjoy pursuing technical and personal projects that reflect my curiosity,
+              initiative, and a broader interest in learning beyond the classroom and research environment.
+            </p>
+
+            <div class="grid">
+              <article class="card">
+                <div>
+                  <div class="card-label">Personal project</div>
+                  <h3>Technical exploration</h3>
+                </div>
+                <p>
+                  I enjoy working on computational and coding-based projects that extend the techniques I use in research,
+                  including simulation tools, numerical experiments, and visualisation work.
+                </p>
+              </article>
+
+              <article class="card">
+                <div>
+                  <div class="card-label">Extracurricular</div>
+                  <h3>Wider involvement</h3>
+                </div>
+                <p>
+                  Recently promoted to PR manager for Specsavers the work will involve communication with various organisations within the wider community,
+                  organising outreach and marketing events, and helping ensure a patient-centred service across both stores while handling both positive and negative feedback.
+                </p>
+              </article>
+            </div>
+
+            <ul class="list">
+              <li>
+                <div class="meta">Coding</div>
+                <div>
+                  <strong>Technical side projects</strong>
+                  I am interested in building technical CFD (computational fluid dynamics) modelling experience alongside my PhD.
+                  I am currently processing simulations for airflow over an aerofoil in Ansys Fluent. In addition, I am looking to begin further projects over the summer based around Monte Carlo simulations or stochastic control theory.
+                  These projects help me deepen my programming skills while exploring ideas beyond my formal research.
+                </div>
+              </li>
+              <li>
+                <div class="meta">Interests</div>
+                <div>
+                  <strong>Wider interests</strong>
+                  Outside formal research, I also enjoy practical and creative interests, such as badminton, the gym, and golfing.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-number">06</div>
+          <div>
+            <h2>Contact</h2>
+            <p class="section-intro">
+              Please feel free to reach out regarding collaborations, opportunities, research questions, or a quick meeting.
+            </p>
+
+            <div class="grid">
+              <article class="card">
+                <div>
+                  <div class="card-label">Email</div>
+                  <h3><a href="mailto:Jatinderpannu2001@outlook.com">Jatinderpannu2001@outlook.com</a></h3>
+                </div>
+                <p><a href="mailto:J.s.pannu1@keele.ac.uk">J.s.pannu1@keele.ac.uk</a></p>
+              </article>
+
+              <article class="card">
+                <div>
+                  <div class="card-label">Links</div>
+                  <h3>LinkedIn / CV / GitHub</h3>
+                </div>
+                <p>
+                  <a href="https://www.linkedin.com/in/jatinder-pannu-8a57a81b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a><br />
+                  <a href="https://github.com/JatinderSinghPannu" target="_blank" rel="noopener noreferrer">GitHub</a><br />
+                  <a href="https://jatindersinghpannu.github.io" target="_blank" rel="noopener noreferrer">Website</a><br />
+                  <a href="#">CV</a>
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="gallery">
+          <div class="section-number">07</div>
+          <div>
+            <h2>Gallery</h2>
+            <p class="section-intro">
+              A small selection of visuals from my research, presentations, and interests outside academia.
+            </p>
+
+            <div class="gallery-grid">
+              <figure class="gallery-item">
+                <img class="gallery-media" src="7ab45573-aef9-474b-af14-40464c0e6c8b.JPEG" alt="Jatinder Singh Pannu presenting at a conference" loading="lazy" />
+                <figcaption class="gallery-caption">
+                  Presenting my research at a conference.
+                </figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img class="gallery-media" src="h_evolution.gif" alt="Animated plot showing film height evolution" loading="lazy" />
+                <figcaption class="gallery-caption">
+                  GIF showing the evolution of film height over time.
+                </figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img class="gallery-media" src="film_2x2_Pe_grid_x2p5_z1_t30_magma_dark.gif" alt="Animated simulation plot of thin-film flow and temperature behaviour" loading="lazy" />
+                <figcaption class="gallery-caption">
+                  Simulation visualisation from my thin-film flow research.
+                </figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img class="gallery-media" src="IMG_3101.JPEG" alt="Jatinder Singh Pannu playing golf" loading="lazy" />
+                <figcaption class="gallery-caption">
+                  Outside research, I also enjoy golfing.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="side-index">
+        <h3>Index</h3>
+        <nav>
+          <a href="#profile">01 / Profile</a>
+          <a href="#research">02 / Research</a>
+          <a href="#rocketry">03 / Rocketry</a>
+          <a href="#startup">04 / Tech-Startup</a>
+          <a href="#projects">05 / Projects</a>
+          <a href="#contact">06 / Contact</a>
+          <a href="#gallery">07 / Gallery</a>
+        </nav>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Jatinder Singh Pannu</div>
+      <div class="footer-meta">
+        <div>Views: <span id="view-count">—</span></div>
+        <div>Built as a single-page GitHub Pages site by Jatinder P.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const sections = document.querySelectorAll('.section');
+    const links = document.querySelectorAll('.side-index a');
+
+    const activate = () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= 140) current = section.id;
+      });
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${current}`;
+        link.classList.toggle('active', isActive);
+      });
+    };
+
+    activate();
+    window.addEventListener('scroll', activate, { passive: true });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
+
+      sections.forEach(section => {
+        revealObserver.observe(section);
+      });
+    } else {
+      sections.forEach(section => section.classList.add('visible'));
+    }
+
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+
+    function updateThemeButton() {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute(
+        'aria-label',
+        isDark ? 'Switch to day mode' : 'Switch to night mode'
+      );
+    }
+
+    updateThemeButton();
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', nextTheme);
+
+      try {
+        localStorage.setItem('theme', nextTheme);
+      } catch (e) {}
+
+      updateThemeButton();
+    });
+
+    async function updateViewCount() {
+      const counter = document.getElementById('view-count');
+
+      const SUPABASE_FUNCTION_URL = 'YOUR_SUPABASE_FUNCTION_URL';
+      const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+      try {
+        const response = await fetch(SUPABASE_FUNCTION_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify({
+            slug: 'homepage'
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (typeof data.count !== 'number') {
+          throw new Error(`Unexpected response: ${JSON.stringify(data)}`);
+        }
+
+        counter.textContent = data.count.toLocaleString();
+      } catch (error) {
+        console.error('View counter error:', error);
+        counter.textContent = '—';
+      }
+    }
+
+    updateViewCount();
+  </script>
+</body>
+</html>
